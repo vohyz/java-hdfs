@@ -9,6 +9,7 @@
 
 # BlueJ files
 *.ctxt
+*.txt
 
 # Font files
 *.otf
