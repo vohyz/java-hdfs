@@ -1,14 +1,14 @@
 package hw2;
 
 public class Producer {
-    public static byte[] create() {
-        byte[] number = new byte[2014*512*256*4];
-        for(int j = 0;j < 2014*512;j++) {
-            for(int i = 0;i < 256;i += 4) {
-                number[i+256*j] = int2Byte(j)[0];
-                number[i+1+256*j] = int2Byte(j)[1];
-                number[i+2+256*j] = int2Byte(j)[2];
-                number[i+3+256*j] = int2Byte(j)[3];
+    public static byte[] create(int start, int end) {
+        byte[] number = new byte[end-start];
+        for(int j = start/1024;j < end/1024;j++) {
+            for(int i = 0;i < 1024;i += 4) {
+                number[i+1024*j-start] = int2Byte(j)[0];
+                number[i+1+1024*j-start] = int2Byte(j)[1];
+                number[i+2+1024*j-start] = int2Byte(j)[2];
+                number[i+3+1024*j-start] = int2Byte(j)[3];
             }
         }
         return number;
